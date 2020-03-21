@@ -1,6 +1,6 @@
-[content]: https://mengxianbin.github.io/me-note/content
+[content]: https://mengxianbin.github.io/me-notes/content
 
-# [me-note][content]
+# [me-notes][content]
 > methodology note  
 > keep updating  
 
