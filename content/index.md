@@ -1,6 +1,8 @@
 [Home](https://mengxianbin.github.io) /
-[me-notes](https://mengxianbin.github.io/me-notes/content)
+[cs-notes](https://mengxianbin.github.io/cs-notes/content)
 
-## [Faynmen](https://mengxianbin.github.io/me-notes/content/Faynmen)
+## [Bezos](https://mengxianbin.github.io/cs-notes/content/Bezos)
 
-## [STAR](https://mengxianbin.github.io/me-notes/content/STAR)
+## [Faynmen](https://mengxianbin.github.io/cs-notes/content/Faynmen)
+
+## [STAR](https://mengxianbin.github.io/cs-notes/content/STAR)

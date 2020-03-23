@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"log"
+	"net/url"
 	"os"
 	"path/filepath"
 	"regexp"
@@ -13,10 +14,10 @@ import (
 
 var contentDir = "content"
 var ignoredDirReg = regexp.MustCompile(fmt.Sprintf("(\\.|%s)", contentDir))
-var ignoredFileReg = regexp.MustCompile("(README|index)")
+var ignoredFileReg = regexp.MustCompile("(README|index|404)")
 
 func uriEncode(input string) string {
-	return strings.ReplaceAll(input, " ", "%20")
+	return url.PathEscape(input)
 }
 
 func writeMarkdown(parent string, fileName string, home string, parents *list.List) (string, error) {
@@ -48,9 +49,9 @@ func writeMarkdown(parent string, fileName string, home string, parents *list.Li
 
 	// 添加上级目录链接
 	parents.PushBack(fileName[:len(fileName)-3])
-	pathLink := toPathLink(home, parents)
+	pathLinks, _ := toPathLink(home, parents)
 	parents.Remove(parents.Back())
-	_, err = file.WriteString(pathLink)
+	_, err = file.WriteString(pathLinks)
 
 	if len(strings.Trim(content, "")) == 0 {
 		content = "# TO DO\n"
@@ -66,7 +67,7 @@ func writeMarkdown(parent string, fileName string, home string, parents *list.Li
 	return newPath, err
 }
 
-func toPathLink(home string, parents *list.List) string {
+func toPathLink(home string, parents *list.List) (full string, last string) {
 	// home
 	link := fmt.Sprintf("[Home](%s)", home)
 
@@ -82,7 +83,7 @@ func toPathLink(home string, parents *list.List) string {
 		link += fmt.Sprintf(" /\n[%s](%s)", p.Value.(string), path)
 	}
 
-	return link
+	return link, path
 }
 
 // GenerateIndex 为目录递归生成 index.md
@@ -108,8 +109,8 @@ func GenerateIndex(path string, home string, parents *list.List) (err error) {
 	}
 
 	// 添加上级目录链接
-	pathLink := toPathLink(home, parents)
-	_, err = indexFile.WriteString(pathLink)
+	pathLinks, parentLink := toPathLink(home, parents)
+	_, err = indexFile.WriteString(pathLinks)
 
 	// 定义结束操作
 	itemCount := 0
@@ -137,33 +138,32 @@ func GenerateIndex(path string, home string, parents *list.List) (err error) {
 		}
 
 		// 拼接链接相对路径
-		linkTitle := file.Name()
-		linkPath := linkTitle
-		if path != "." {
-			linkPath = fmt.Sprintf("%s/%s", path, file.Name())
-		}
-
+		var linkTitle string
+		var linkPath string
 		if file.IsDir() { // 处理目录
 			if ignoredDirReg.MatchString(file.Name()) {
 				continue
 			}
 
 			parents.PushBack(file.Name())
-			err = GenerateIndex(linkPath, home, parents)
+			err = GenerateIndex(path+"/"+file.Name(), home, parents)
 			parents.Remove(parents.Back())
+
+			linkTitle = file.Name()
+			linkPath = fmt.Sprintf("%s/%s/", parentLink, uriEncode(linkTitle))
 		} else { // 处理文件
 			if filepath.Ext(file.Name()) != ".md" || ignoredFileReg.MatchString(file.Name()) {
 				continue
 			}
 
 			_, err = writeMarkdown(path, file.Name(), home, parents)
-			linkTitle = linkTitle[:len(linkTitle)-3]
-			linkPath = linkPath[:len(linkPath)-3]
+
+			linkTitle = file.Name()[:len(file.Name())-3]
+			linkPath = fmt.Sprintf("%s/%s", parentLink, uriEncode(linkTitle))
 		}
 
 		// 生成链接
-		uri := fmt.Sprintf("%s/%s/%s/%s", home, parents.Front().Value, contentDir, linkPath)
-		link := fmt.Sprintf("## [%s](%s)", linkTitle, uriEncode(uri))
+		link := fmt.Sprintf("## [%s](%s)", linkTitle, linkPath)
 		log.Printf("Link: %s\n", link)
 
 		// 写入链接
@@ -194,6 +194,6 @@ func main() {
 
 	// 生成新索引文件
 	parents := list.New()
-	parents.PushBack("me-notes")
+	parents.PushBack("cs-notes")
 	_ = GenerateIndex(".", "https://mengxianbin.github.io", parents)
 }
