@@ -11,4 +11,10 @@
     * Fewer
     * Quality
 
+* Keep Energetic
+    * Regular schedule
+        * Go to bed early
+        * Get up early
+        * Sleep for 8 hours a day
+
 ---
