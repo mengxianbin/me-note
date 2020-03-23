@@ -1,6 +1,6 @@
 [Home](https://mengxianbin.github.io) /
-[cs-notes](https://mengxianbin.github.io/cs-notes/content) /
-[Bezos](https://mengxianbin.github.io/cs-notes/content/Bezos)
+[me-notes](https://mengxianbin.github.io/me-notes/content) /
+[Bezos](https://mengxianbin.github.io/me-notes/content/Bezos)
 
 * Long-term Thinking
     * Minimize the regrets in your life

@@ -1,6 +1,6 @@
 [Home](https://mengxianbin.github.io) /
-[cs-notes](https://mengxianbin.github.io/cs-notes/content) /
-[STAR](https://mengxianbin.github.io/cs-notes/content/STAR)
+[me-notes](https://mengxianbin.github.io/me-notes/content) /
+[STAR](https://mengxianbin.github.io/me-notes/content/STAR)
 
 * S: Situation
 * T: Task

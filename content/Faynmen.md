@@ -1,6 +1,6 @@
 [Home](https://mengxianbin.github.io) /
-[cs-notes](https://mengxianbin.github.io/cs-notes/content) /
-[Faynmen](https://mengxianbin.github.io/cs-notes/content/Faynmen)
+[me-notes](https://mengxianbin.github.io/me-notes/content) /
+[Faynmen](https://mengxianbin.github.io/me-notes/content/Faynmen)
 
 # Feynman's Learning Method
 
