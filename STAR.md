@@ -1,4 +1,4 @@
-* S: Situation
-* T: Task
-* A: Action
-* R: Result
+* Situation
+* Task
+* Action
+* Result
