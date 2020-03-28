@@ -1,0 +1,6 @@
+* Plan
+* Do
+* Check
+* Action
+
+---
