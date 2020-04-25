@@ -1,0 +1,7 @@
+[Home](https://mengxianbin.github.io) /
+[wiki-notes](https://mengxianbin.github.io/wiki-notes/site) /
+[Mathematics](https://mengxianbin.github.io/wiki-notes/site/Mathematics) /
+[其他](https://mengxianbin.github.io/wiki-notes/site/Mathematics/%E5%85%B6%E4%BB%96) /
+[元胞自动机](https://mengxianbin.github.io/wiki-notes/site/Mathematics/%E5%85%B6%E4%BB%96/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA)
+
+## [生命游戏](https://mengxianbin.github.io/wiki-notes/site/Mathematics/%E5%85%B6%E4%BB%96/%E5%85%83%E8%83%9E%E8%87%AA%E5%8A%A8%E6%9C%BA/%E7%94%9F%E5%91%BD%E6%B8%B8%E6%88%8F)
