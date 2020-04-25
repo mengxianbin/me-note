@@ -1,7 +1,7 @@
 [site]: https://mengxianbin.github.io/wiki-notes/site
 
 # [wiki-notes][site]
-> wiki notes  
+> brief wiki notes  
 > keep updating  
 
 * [Read][site]
