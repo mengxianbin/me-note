@@ -1,13 +1,13 @@
-[content]: https://mengxianbin.github.io/me-notes/content
+[site]: https://mengxianbin.github.io/wiki-notes/site
 
-# [me-notes][content]
-> methodology note  
+# [wiki-notes][site]
+> wiki notes  
 > keep updating  
 
-* [Read][content]
+* [Read][site]
 * Write
     * add or update markdown files
-    * go run `update.go` to regenerate the `content` directory
+    * go run `update.go` to regenerate the `site` directory
     * commit and push
 
 ---
